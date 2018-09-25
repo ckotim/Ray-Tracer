@@ -13,11 +13,11 @@ namespace cs410 {
         Point::Point(float x, float y, float z) : xval(x), yval(y), zval(z), hval(1) {}
 
         /* FUNCTIONS */
-        const float& Point::x() const { return xval; }
+        const float &Point::x() const { return xval; }
 
-        const float& Point::y() const { return yval; }
+        const float &Point::y() const { return yval; }
 
-        const float& Point::z() const { return zval; }
+        const float &Point::z() const { return zval; }
 
         /* OPERATORS */
         // Point - Point = Vector
@@ -28,6 +28,11 @@ namespace cs410 {
         // Point + Vector = Point
         Point Point::operator+(const Vector &v) const {
             return {xval + v.x(), yval + v.y(), zval + v.z()};
+        }
+
+        // Point == Point
+        bool Point::operator==(const Point &p) const {
+            return xval == p.x() && yval == p.y() && zval == p.z();
         }
 
         // cout << Point

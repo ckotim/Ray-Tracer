@@ -11,6 +11,8 @@ namespace cs410 {
         /* CTORS */
         Vector::Vector() : coordinates(new Point()) {}
 
+        Vector::Vector(float x, float y, float z) : Vector(*new Point(x,y,z)) {}
+
         Vector::Vector(const Vector &v) { coordinates = new Point(*v.coordinates); }
 
         Vector::Vector(Point &p) : coordinates(&p) {}
@@ -34,7 +36,7 @@ namespace cs410 {
         // Assignment
         Vector& Vector::operator=(const Vector &v) {
             delete coordinates;
-            *coordinates = *v.coordinates;
+            coordinates = new Point(*v.coordinates);
             return *this;
         }
 
@@ -49,6 +51,11 @@ namespace cs410 {
             float y = (this->z() * v.x()) - (this->x() * v.z());
             float z = (this->x() * v.y()) - (this->y() * v.x());
             return Vector(*new Point(x,y,z));
+        }
+
+        // Vector == Vector
+        bool Vector::operator==(const Vector &v) const {
+            return *coordinates == *(v.coordinates);
         }
 
         // Vector Scaling

@@ -18,6 +18,7 @@ namespace cs410 {
 
             /* CTORS */
             Vector();
+            Vector(float x, float y, float z);
             Vector(const Vector& v);
             explicit Vector(Point &p);
             ~Vector();
@@ -37,7 +38,11 @@ namespace cs410 {
 
             /* OPERATORS */
 
+            // Assignment Operator
             Vector& operator=(const Vector& v);
+
+            // Vector == Vector
+            bool operator==(const Vector& v) const;
         };
 
         Vector operator*(const float& f, const Vector& v);

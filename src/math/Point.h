@@ -39,6 +39,10 @@ namespace cs410 {
             //Point + Vector = V
             Point operator+(const Vector& v) const;
 
+            // Point == Point
+            bool operator==(const Point& p) const;
+
+            // Point != Point
         };
 
         std::ostream &operator<<(std::ostream& os, const Point& p);
